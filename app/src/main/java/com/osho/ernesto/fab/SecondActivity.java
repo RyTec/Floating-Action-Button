@@ -1,10 +1,10 @@
 package com.osho.ernesto.fab;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -17,7 +17,8 @@ import android.widget.Toast;
 public class SecondActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
-    private Toolbar toolbar;
+    private Toolbar toolbar;                              // Declaring the Toolbar Object
+
     private EditText inputName, inputEmail, inputPassword, birthday;
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutPassword;
     private Button btnSignUp;
@@ -26,11 +27,14 @@ public class SecondActivity extends AppCompatActivity {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         inputLayoutName = (TextInputLayout) findViewById(R.id.input_layout_name);
@@ -45,6 +49,7 @@ public class SecondActivity extends AppCompatActivity {
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
         inputPassword.addTextChangedListener(new MyTextWatcher(inputPassword));
 
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +57,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
 
     /**
      * Validating form
