@@ -38,17 +38,18 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        app:fabSize="normal"
-        android:layout_marginRight="24dp"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="24dp"
+        android:layout_marginRight="24dp"
         android:clickable="true"
-        app:borderWidth="0dp"
-        app:elevation="5dp"
-        android:stateListAnimator="@anim/fab_down"
+        android:src="@drawable/ic_add"
         app:backgroundTint="#C2185B"
-        app:rippleColor="@android:color/transparent"/>
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:pressedTranslationZ="12dp" />
+
 
 </RelativeLayout>
