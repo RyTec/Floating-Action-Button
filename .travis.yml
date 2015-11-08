@@ -7,8 +7,11 @@ android:
     # - tools
     
     # Before build starts
-    before_install:
-    - chmod a+x gradlew
+    before_script:
+    - chmod +x grailsw
+
+    script: ./grailsw refresh-dependencies
+    && ./grailsw "test-app -integration"
  
     # The BuildTools version used by your project
     - build-tools-23.0.1
