@@ -1,13 +1,16 @@
 package com.osho.ernesto.fab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity { /* When using Appcombat support library
@@ -16,19 +19,27 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
                                                       */
 
 
+    FloatingActionButton fab;
     private Toolbar mToolbar;                              // Declaring the Toolbar Object
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton v = (FloatingActionButton) findViewById(R.id.fab);
-
         mToolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(mToolbar);                   // Setting toolbar as the ActionBar with setSupportActionBar() call
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -49,10 +60,7 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
         if (id == R.id.action_settings) {
             return true;
         }
-        if (id ==R.id.about)
-        {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
