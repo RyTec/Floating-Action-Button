@@ -6,6 +6,7 @@ android:
     # - platform-tools
     # - tools
     
+    sudo: false
     # Before build starts
     before_script:
     - chmod +x grailsw
